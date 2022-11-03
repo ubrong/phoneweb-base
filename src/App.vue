@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -16,8 +14,9 @@ import HelloWorld from './components/HelloWorld.vue'
     <router-link active-class="active" :to="{name:'about'}">关于</router-link>
   </nav>
 
-
-  <RouterView />
+  <div>
+    <RouterView />
+  </div>
 
 </template>
 
@@ -31,8 +30,10 @@ import HelloWorld from './components/HelloWorld.vue'
   padding:1em 0;
   text-align: center;
 }
+
 .logo{
-  width:60px;
+  width: 80px;
+  height: 80px;
 }
 
 .nav-box{
@@ -40,7 +41,7 @@ import HelloWorld from './components/HelloWorld.vue'
   bottom: 0;
   left:0;
   width:100%;
-  background-color: #aaa;
+  background-color: #ddd;
   height:50px;
   text-align: center;
 
