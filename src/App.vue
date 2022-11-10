@@ -18,6 +18,9 @@
     <RouterView />
   </div>
 
+  <MyFooter></MyFooter>
+
+
 </template>
 
 <style scoped>

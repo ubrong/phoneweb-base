@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import useCounterStore from "@/stores/counter"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,5 +26,15 @@ const router = createRouter({
     }
   ]
 })
+
+router.beforeEach((to, from ,next)=>{
+
+  // 访客次数+1
+  const counterStore = useCounterStore();
+  counterStore.info.counter++;
+
+  // 加载页面
+  next();
+});
 
 export default router
