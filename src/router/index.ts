@@ -1,8 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import useCounterStore from "@/stores/counter"
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  //history: createWebHistory(import.meta.env.BASE_URL), //注释此行，web服务器未配置重定向时，刷新会出现404
+  history: createWebHashHistory(), //如需seo，不要选择此项
   routes: [
     {
       path: '/',
