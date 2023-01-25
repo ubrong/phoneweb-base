@@ -1,10 +1,20 @@
 <script setup lang="ts">
+import {onUpdated, computed, ref} from "vue"
+import usePageinfoStore from "@/stores/pageinfo"
+const pageinfoStore = usePageinfoStore();
+
+// 主页不再显示logo，2023年春节主题
+const isShowLogo = computed(()=>{
+  return pageinfoStore.routeName!='home';
+});
+
 </script>
 
 <template>
 
-  <div class="log-box">
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="log-box" v-show="isShowLogo">
+    <img alt="Vue logo" class="logo" src="@/assets/logo.png" />
+    <img alt="Vue logo" src="@/assets/logo.svg" width="30" height="30" />
   </div>
 
   <nav class="nav-box">
@@ -30,13 +40,16 @@
 }
 
 .log-box{
-  padding:1em 0;
-  text-align: center;
+  padding:1em .5em;
+  /* text-align: center; */
+  border-bottom: 1px solid #999;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo{
-  width: 80px;
-  height: 80px;
+  height: auto;
+  width: 50%;
 }
 
 .nav-box{
@@ -44,7 +57,7 @@
   bottom: 0;
   left:0;
   width:100%;
-  background-color: #ddd;
+  background-color: #e0e0e0;
   height:50px;
   text-align: center;
 

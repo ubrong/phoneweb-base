@@ -4,7 +4,8 @@
 
 <template>
   <div>
-    <h1>关于页面</h1>
+    <br>
+    <p>“关于页面”正在建设中...</p>
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import useCounterStore from "@/stores/counter"
+import usePageinfoStore from "@/stores/pageinfo"
 
 const router = createRouter({
   //history: createWebHistory(import.meta.env.BASE_URL), //注释此行，web服务器未配置重定向时，刷新会出现404
@@ -34,8 +35,10 @@ router.beforeEach((to, from ,next)=>{
   const counterStore = useCounterStore();
   counterStore.info.counter++;
 
+  const pageinfoStore = usePageinfoStore();
+  pageinfoStore.routeName = to.name as string;
+  
   // 加载页面
   next();
 });
-
 export default router

@@ -11,9 +11,12 @@ const counterStore = useCounterStore();
 
 <style scoped>
 .footer{
+  position: absolute;
+  bottom:60px;
+  width:100%;
   text-align: center;
   font-size: .8em;
-  color:#555;
+  color:#000;
 }
 </style>
 
